@@ -1,4 +1,5 @@
-body
-{
-    background-color: aquamarine;
+
+.weatherImg{
+    width: 100px;
+    height: 100px;
 }
