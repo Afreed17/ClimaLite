@@ -217,3 +217,12 @@ background: linear-gradient(292deg, rgba(58,111,89,1) 0%, rgba(24,111,101,1) 0%,
   top: 0;
   border-radius: 10px;
 }
+
+.footer
+{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: whitesmoke;
+   font-family: montserrat,sans-serif;
+}
