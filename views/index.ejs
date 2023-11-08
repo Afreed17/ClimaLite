@@ -33,8 +33,23 @@
             <button class="button-85"  type="submit">GetForecast</button>
 
         </form>
-      
 
+      <% if ( locals.locationData &&locals.iconData && locals.currentDateData && locals.descriptionData && locals.celciusData && locals.pressure &&locals.windSpeed&&locals.minTempData  &&locals.maxTempData && locals.feelsLike && locals.humidity){%>
+        
+        <div class="locHead">
+            <h1><%= locationData %>Weather Forecast</h1>
+        </div>
+
+        <div class="locShowCase">
+            <div>
+
+            </div>
+            <div>
+            <p></p>
+            </div>
+        </div>
+
+      <% } else{%>
         <div class="description">
             <h2>Note to Users:</h2>
             <p>Welcome to Climalite, your go-to destination for current weather updates! To provide you with accurate weather information, please ensure the following:</p>
@@ -46,7 +61,11 @@
             <br>
             <p>Stay informed,<br>The ClimaLite Team.</p>
         </div>
+      <%  } %>
+    
+    
 
+        
     <div class="footer">
         <p>&copy; The ClimaLite-App:All rights reserved.</p>
     </div>

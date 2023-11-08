@@ -22,7 +22,6 @@ app.post("/forecast",async(req,res)=>
 {
     const loc=req.body.city;
     var result =await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${Api_Key}`);
-    var icon=result.data.weather[0].icon.slice(0,2);
     var description=result.data.weather[0].description;
     var celcius=(result.data.main.temp-273).toFixed(2);
     var minTemp=(result.data.main.temp_min-273).toFixed(2);
@@ -31,10 +30,130 @@ app.post("/forecast",async(req,res)=>
     var humidity=result.data.main.humidity;
     var pressure=result.data.main.pressure;
     var windSpeed=result.data.wind.speed;
-    console.log(windSpeed)
+
+    var icon=result.data.weather[0].icon.slice(0,2);
+
+    var iconURLdata=""
+
+    switch(icon)
+    {
+        case "01":
+            iconURLdata="clear-sky.png";
+            break;
+        case "02":
+            iconURLdata="few-clouds.png";
+            break;
+        case "03":
+            iconURLdata="scattered-clouds.png";
+            break;
+        case "04":
+            iconURLdata="broken-clouds.png";
+            break;
+        case "09":
+            iconURLdata="shower-rain.png";
+            break;
+        case "10":
+            iconURLdata="rain.png";
+            break;
+        case "11":
+            iconURLdata="storm.png";
+            break;
+        case "13":
+            iconURLdata="snow.png";
+            break;
+        case "50":
+            iconURLdata="mist.png";
+            break;
+        default:
+            iconURLdata="sorry";
+    }
+
+
+
+    const date=new Date();
+    let month=date.getMonth()+1;
+    let day=date.getDate();//1-31
+    let weekday=date.getDay();
+
+    var bmonth="";
+    switch(month){
+        case 1: 
+        bmonth = "January";
+        break;
+        case 2: 
+        bmonth = "February";
+            break;
+        case 3: 
+        bmonth = "March";
+            break;
+        case 4: 
+        bmonth = "April";
+            break;
+        case 5: 
+        bmonth = "May";
+            break;
+        case 6: 
+        bmonth = "June"; 
+            break;
+        case 7: 
+        bmonth = "July";
+            break;
+        case 8: 
+        bmonth = "August";
+            break;
+        case 9: 
+        bmonth = "September";
+            break;
+        case 10: 
+        bmonth = "October";
+            break;
+        case 11: 
+        bmonth = "November";
+            break;
+        case 12: 
+        bmonth = "December";
+            break;
+        default:
+        bmonth="invalid Month";
+        } 
+
+    var bweekday="";
+    switch(weekday)
+    {
+        case 0:
+            bweekday="Sunday";
+            break;
+        case 1:
+            bweekday="Monday";
+            break;
+        case 2:
+            bweekday="Tuesday";
+            break;
+        case 3:
+            bweekday="Wednesday"
+            break;
+        case 4:
+            bweekday="Thursday"
+            break;
+        case 5:
+            bweekday="Friday"
+            break;
+        case 6:
+            bweekday="Saturday"
+            break;
+        default:
+            bweekday="invalid Weekday";
+    }
+
+    var currentDate=`${bweekday},${day} ${bmonth}`;
+
+    console.log(iconURLdata);
+
     res.render("index.ejs",
     {
-        iconData:icon,
+        locationData:loc,
+        currentDateData:currentDate,
+        iconData:iconURLdata,
         descriptionData:description,
         celciusData:celcius,
         minTempData:minTemp,
@@ -42,7 +161,7 @@ app.post("/forecast",async(req,res)=>
         feelsLikeData:feelsLike,
         humidityData:humidity,
         pressureData:pressure,
-        windSpeedData:windSpeed,
+        windSpeedData:windSpeed
     });
 });
 
