@@ -20,52 +20,57 @@ app.get("/",(req,res)=>{
 
 app.post("/forecast",async(req,res)=>
 {
-    const loc=req.body.city;
-    var result =await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${Api_Key}`);
-    var description=result.data.weather[0].description;
-    var celcius=(result.data.main.temp-273).toFixed(2);
-    var minTemp=(result.data.main.temp_min-273).toFixed(2);
-    var maxTemp=(result.data.main.temp_max-273).toFixed(2);
-    var feelsLike=(result.data.main.feels_like-273).toFixed(2);
-    var humidity=result.data.main.humidity;
-    var pressure=result.data.main.pressure;
-    var windSpeed=result.data.wind.speed;
-
-    var icon=result.data.weather[0].icon.slice(0,2);
+    try
+    {
+        var loc=req.body.city;
+        var result =await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${Api_Key}`);
+        var description=result.data.weather[0].description;
+        var celcius=(result.data.main.temp-273).toFixed(2);
+        var minTemp=(result.data.main.temp_min-273).toFixed(2);
+        var maxTemp=(result.data.main.temp_max-273).toFixed(2);
+        var feelsLike=(result.data.main.feels_like-273).toFixed(2);
+        var humidity=result.data.main.humidity;
+        var pressure=result.data.main.pressure;
+        var windSpeed=result.data.wind.speed;
+        var icon=result.data.weather[0].icon.slice(0,2);
+    }
+    catch (error) {
+        res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+      }
 
     var iconURLdata=""
 
     switch(icon)
     {
         case "01":
-            iconURLdata="clear-sky.png";
+            iconURLdata="../images/clear-sky.png";
             break;
         case "02":
-            iconURLdata="few-clouds.png";
+            iconURLdata="../images/few-clouds.png";
             break;
         case "03":
-            iconURLdata="scattered-clouds.png";
+            iconURLdata="../images/scattered-clouds.png";
             break;
         case "04":
-            iconURLdata="broken-clouds.png";
+            iconURLdata="../images/broken-clouds.png";
             break;
         case "09":
-            iconURLdata="shower-rain.png";
+            iconURLdata="../images/shower-rain.png";
             break;
         case "10":
-            iconURLdata="rain.png";
+            iconURLdata="../images/rain.png";
             break;
         case "11":
-            iconURLdata="storm.png";
+            iconURLdata="../images/storm.png";
             break;
         case "13":
-            iconURLdata="snow.png";
+            iconURLdata="../images/snow.png";
             break;
         case "50":
-            iconURLdata="mist.png";
+            iconURLdata="../images/mist.png";
             break;
         default:
-            iconURLdata="sorry";
+            iconURLdata="../images/sorry";
     }
 
 

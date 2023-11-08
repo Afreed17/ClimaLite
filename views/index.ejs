@@ -34,33 +34,74 @@
 
         </form>
 
-      <% if ( locals.locationData &&locals.iconData && locals.currentDateData && locals.descriptionData && locals.celciusData && locals.pressure &&locals.windSpeed&&locals.minTempData  &&locals.maxTempData && locals.feelsLike && locals.humidity){%>
+      <% if ( locals.locationData &&locals.iconData && locals.currentDateData && locals.descriptionData && locals.celciusData && locals.pressureData &&locals.windSpeedData && locals.minTempData  &&locals.maxTempData && locals.feelsLikeData && locals.humidityData){%>
         
-        <div class="locHead">
-            <h1><%= locationData %>Weather Forecast</h1>
-        </div>
+            <div class="locHead">
+                <h1><%= locationData %> Weather Forecast</h1>
+            </div>
 
-        <div class="locShowCase">
-            <div>
+            <div class="locShowCase">
+                <div>
+                    <img src="<%= iconData %>" alt="weatherIcon">
+                </div>
+                <div>
+                    <p><%= currentDateData %></p>
+                    <h2><%= descriptionData %></h2>
+                </div>
+            </div>
+
+            <div class="celcius">
+                <h1><%= celciusData %> °C</h1>
+            </div>
+
+            <div class="celciusDes">
+                <h3>Weather Today in <%= locationData %></h3>
+                <div class="celciusDesEl">
+                    <h4>Min Temp | Max Temp</h4>
+                    <h4><%= minTempData %>°C | <%= maxTempData %>°C</h4>
+                </div>
+            </div>
+
+            <div class="data">
+                
+                <div class="datarow1">
+                    <div class="datarow1-1">
+                        <h3>Temp Feels</h3>
+                        <p><%= feelsLikeData %> °C</p>
+                    </div>
+
+                    <div class="datarow1-2">
+                        <h3>Humidity</h3>
+                        <p><%= humidityData %>%</p>
+                    </div>
+                </div>
+
+                <div class="datarow2">
+                    <div class="datarow2-1">
+                        <h3>Pressure</h3>
+                        <p><%= pressureData %>pa</p>
+                    </div>
+
+                    <div class="datarow2-2">
+                        <h3>W-Speed</h3>
+                        <p><%= windSpeedData %>m/s</p>
+                    </div>
+                </div>
 
             </div>
-            <div>
-            <p></p>
-            </div>
-        </div>
 
       <% } else{%>
-        <div class="description">
-            <h2>Note to Users:</h2>
-            <p>Welcome to Climalite, your go-to destination for current weather updates! To provide you with accurate weather information, please ensure the following:</p>
-            <br>
-            <p>Accurate City Name: Please enter the precise and correct spelling of the city you want to know the weather for. We rely on a reliable city API, and the information can only be provided if the city name matches our database.</p>
-            <p>City Availability: Our service can only provide weather information for cities available in our city API database. If you're having trouble finding a smaller town, try entering the name of a nearby major city or a well-known landmark.</p>
-            <br>
-            <p>Ensuring the accuracy of the city name guarantees you receive the most up-to-date weather details for your location. Thank you for your cooperation!</p>
-            <br>
-            <p>Stay informed,<br>The ClimaLite Team.</p>
-        </div>
+                <div class="description">
+                    <h2>Note to Users:</h2>
+                    <p>Welcome to Climalite, your go-to destination for current weather updates! To provide you with accurate weather information, please ensure the following:</p>
+                    <br>
+                    <p>Accurate City Name: Please enter the precise and correct spelling of the city you want to know the weather for. We rely on a reliable city API, and the information can only be provided if the city name matches our database.</p>
+                    <p>City Availability: Our service can only provide weather information for cities available in our city API database. If you're having trouble finding a smaller town, try entering the name of a nearby major city or a well-known landmark.</p>
+                    <br>
+                    <p>Ensuring the accuracy of the city name guarantees you receive the most up-to-date weather details for your location. Thank you for your cooperation!</p>
+                    <br>
+                    <p>Stay informed,<br>The ClimaLite Team.</p>
+                </div>
       <%  } %>
     
     
