@@ -115,44 +115,6 @@ body
 {
     outline: 0;
 }
-
-
-/* CSS */
-/* .button-88 {
-  display: flex;
-  align-items: center;
-  font-family: inherit;
-  font-weight: 500;
-  font-size: 16px;
-  padding: 0.7em 1.4em 0.7em 1.1em;
-  color: white;
-  background: rgb(58,111,89);
-background: linear-gradient(292deg, rgba(58,111,89,1) 0%, rgba(24,111,101,1) 0%, rgba(66,111,86,1) 0%, rgba(62,214,197,1) 60%, rgba(79,111,82,1) 100%, rgba(255,255,255,1) 100%);
-  border: none;
-  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
-  letter-spacing: 0.05em;
-  border-radius: 20em;
-  cursor: pointer;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.button-88:hover {
-  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
-}
-
-.button-88:active {
-  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
-}
-
-
-
- */
-
-
-
-
 /* CSS */
 .button-85 {
   padding: 0.6em 2em;
