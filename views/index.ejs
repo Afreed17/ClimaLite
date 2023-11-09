@@ -63,32 +63,47 @@
             </div>
 
             <div class="data">
+                    <div class="datarow">
+                        <img src="../images/thermometer.png" alt="weatherIcon">
+                        <div>
+                            <h3>Temp Feels</h3>
+                            <p><%= feelsLikeData %> °C</p>
+                        </div>
+                    </div>
+
+                    <div class="datarow">
+                        <img src="../images/humidity.png" alt="weatherIcon">
+                        <div>
+                            <h3>Humidity</h3>
+                            <p><%= humidityData %>%</p>
+                        </div>
+                    </div>
                 
-                <div class="datarow1">
-                    <div class="datarow1-1">
-                        <h3>Temp Feels</h3>
-                        <p><%= feelsLikeData %> °C</p>
+                    <div class="datarow">
+                        <img src="../images/barometer.png" alt="weatherIcon">
+                        <div>
+                            <h3>Pressure</h3>
+                            <p><%= pressureData %>pa</p>
+                        </div> 
                     </div>
 
-                    <div class="datarow1-2">
-                        <h3>Humidity</h3>
-                        <p><%= humidityData %>%</p>
+                    <div class="datarow">
+                        <img src="../images/windy.png" alt="weatherIcon">
+                        <div>
+                            <h3>W-Speed</h3>
+                            <p><%= windSpeedData %>m/s</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="datarow2">
-                    <div class="datarow2-1">
-                        <h3>Pressure</h3>
-                        <p><%= pressureData %>pa</p>
-                    </div>
-
-                    <div class="datarow2-2">
-                        <h3>W-Speed</h3>
-                        <p><%= windSpeedData %>m/s</p>
-                    </div>
-                </div>
 
             </div>
+
+        <% } else if(locals.content && locals.content2) {%>
+
+            <div class="errormsg">
+                <h3><%= content %></h3>
+                <h3><%= content2 %></h3>
+            </div>
+            
 
       <% } else{%>
                 <div class="description">

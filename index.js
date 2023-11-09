@@ -35,7 +35,7 @@ app.post("/forecast",async(req,res)=>
         var icon=result.data.weather[0].icon.slice(0,2);
     }
     catch (error) {
-        res.render("index.ejs", { content: JSON.stringify(error.response.data) });
+        res.render("index.ejs",{content:"oops! Location is not valid",content2:"Please Enter the correct location name.!"});
       }
 
     var iconURLdata=""
@@ -151,8 +151,6 @@ app.post("/forecast",async(req,res)=>
     }
 
     var currentDate=`${bweekday},${day} ${bmonth}`;
-
-    console.log(iconURLdata);
 
     res.render("index.ejs",
     {
